@@ -1403,8 +1403,7 @@ paths:
           description: Failed to read the HTTP body
       tags:
         - evaluate-the-tenant-is-reserved
-
-  /v2/streaming/replications-peers/{instance}/{cluster}:
+    /v2/streaming/replications-peers/{instance}/{cluster}:
           get:
               description: Gets a list of Pulsar allowed clusters for replication
               operationId: getAllowedClusters
@@ -1427,83 +1426,83 @@ paths:
                           $ref: '#/definitions/stringResponse'
               tags:
                   - replications
-  /v2/streaming/replications/{instance}/{tenant}/{namespace}:
-          delete:
-              description: Remove replicated namespace within the Pulsar instance
-              operationId: removeNamespaceReplications
-              parameters:
-                  - description: Request body to setup namespace replication
-                    in: body
-                    name: request body
+    /v2/streaming/replications/{instance}/{tenant}/{namespace}:
+        delete:
+            description: Remove replicated namespace within the Pulsar instance
+            operationId: removeNamespaceReplications
+            parameters:
+                - description: Request body to setup namespace replication
+                  in: body
+                  name: request body
+                  schema:
+                    $ref: '#/definitions/geoRequest'
+            responses:
+                "200":
+                    description: successfully remove namespace geo replication
+                "401":
+                    description: Authentication failure
                     schema:
-                      $ref: '#/definitions/geoRequest'
-              responses:
-                  "200":
-                      description: successfully remove namespace geo replication
-                  "401":
-                      description: Authentication failure
-                      schema:
-                          $ref: '#/definitions/stringResponse'
-                  "404":
-                      description: namespace not found
-                  "422":
-                      description: bad request body
-                  "429":
-                      description: Over rate limit
-                  "500":
-                      description: any other internal server side error
-                      schema:
-                          $ref: '#/definitions/stringResponse'
-              tags:
-                  - replications
-          get:
-              description: Gets replicated namespace within the Pulsar instance
-              operationId: getNamespaceReplications
-              responses:
-                  "200":
-                      description: namespace geo replication diagram
-                      schema:
-                          $ref: '#/definitions/geoReplicationDiagramResponse'
-                  "401":
-                      description: Authentication failure
-                      schema:
-                          $ref: '#/definitions/stringResponse'
-                  "404":
-                      description: namespace not found
-                  "429":
-                      description: Over rate limit
-                  "500":
-                      description: Failed to read the HTTP body
-                      schema:
-                          $ref: '#/definitions/stringResponse'
-              tags:
-                  - replications
-          post:
-              description: Set up replicated namespace within the Pulsar instance
-              operationId: setupNamespaceReplications
-              parameters:
-                  - description: Request body to setup namespace replication
-                    in: body
-                    name: request body
+                        $ref: '#/definitions/stringResponse'
+                "404":
+                    description: namespace not found
+                "422":
+                    description: bad request body
+                "429":
+                    description: Over rate limit
+                "500":
+                    description: any other internal server side error
                     schema:
-                      $ref: '#/definitions/geoRequest'
-              responses:
-                  "200":
-                      description: successfully set up namespace geo replication
-                  "401":
-                      description: Authentication failure
-                      schema:
-                          $ref: '#/definitions/stringResponse'
-                  "404":
-                      description: cluster or namespace not found
-                  "429":
-                      description: Over rate limit
-                  "500":
-                      description: any other internal server side error
-                      schema:
-                          $ref: '#/definitions/stringResponse'
-              tags:
-                  - replications
+                        $ref: '#/definitions/stringResponse'
+            tags:
+                - replications
+        get:
+            description: Gets replicated namespace within the Pulsar instance
+            operationId: getNamespaceReplications
+            responses:
+                "200":
+                    description: namespace geo replication diagram
+                    schema:
+                        $ref: '#/definitions/geoReplicationDiagramResponse'
+                "401":
+                    description: Authentication failure
+                    schema:
+                        $ref: '#/definitions/stringResponse'
+                "404":
+                    description: namespace not found
+                "429":
+                    description: Over rate limit
+                "500":
+                    description: Failed to read the HTTP body
+                    schema:
+                        $ref: '#/definitions/stringResponse'
+            tags:
+                - replications
+        post:
+            description: Set up replicated namespace within the Pulsar instance
+            operationId: setupNamespaceReplications
+            parameters:
+                - description: Request body to setup namespace replication
+                  in: body
+                  name: request body
+                  schema:
+                    $ref: '#/definitions/geoRequest'
+            responses:
+                "200":
+                    description: successfully set up namespace geo replication
+                "401":
+                    description: Authentication failure
+                    schema:
+                        $ref: '#/definitions/stringResponse'
+                "404":
+                    description: cluster or namespace not found
+                "429":
+                    description: Over rate limit
+                "500":
+                    description: any other internal server side error
+                    schema:
+                        $ref: '#/definitions/stringResponse'
+            tags:
+                - replications
 
 ## End Astra Streaming paths...
 
