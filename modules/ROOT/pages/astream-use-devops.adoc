@@ -11,6 +11,7 @@ How to use the DevOps API to do:
 * xref:astream-use-devops.adoc#create-a-tenant[Create a tenant]
 * xref:astream-use-devops.adoc#get-tenant-limits[Get the limits of a tenant]
 * xref:astream-use-devops.adoc#delete-a-tenant[Delete a tenant]
+* xref:astream-use-devops.adoc#georeplication[Georeplication]
 
 
 // tag::set-bearer-token[]
@@ -217,26 +218,30 @@ include::example$result/delete_tenant_hard.result[]
 --
 ====
 
-// To delete an existing tenant softly, execute the command:
-// [tabs]
-// ====
-// cURL command::
-// +
-// --
-// [source,shell,subs="attributes+"]
-// ----
-// include::example$delete_tenant_soft.sh[]
-// ----
-// --
-//
-// Result::
-// +
-// --
-// [source,plaintext]
-// ----
-// include::example$result/delete_tenant_soft.result[]
-// ----
-// --
-// ====
 
-// end::delete-a-tenant[]
+// tag::delete-a-tenant[]
+[#georeplication]
+== Georeplication
+
+To delete an existing tenant, execute the command:
+[tabs]
+====
+cURL command::
++
+--
+[source,shell,subs="attributes+"]
+----
+include::example$delete_tenant_hard.sh[]
+----
+--
+
+Result::
++
+--
+[source,plaintext]
+----
+include::example$result/delete_tenant_hard.result[]
+----
+--
+====
+
