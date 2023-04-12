@@ -20,7 +20,7 @@ Guardrails are initially provisioned in the default settings by {product_name} a
 |*Limit*
 
 |Number of tenants per organization
-|10
+|10 [^1]
 
 |Number of namespaces per tenant
 |10
@@ -29,7 +29,7 @@ Guardrails are initially provisioned in the default settings by {product_name} a
 |100
 
 |Max message size
-|5MB (default)
+|5MB (default) [^1]
 
 |Max throughput per topic for consumer
 |5000 messages/s, 25MB/s +
@@ -42,9 +42,6 @@ Max throughput for a *non-partitioned topic* or a *single partition of a partiti
 |Max throughput per subscription
 |5000 messages/s, 25MB/s +
 *Multiple subscriptions* from a *non-partitioned topic* or a *single partition of a partitioned topic* can dispatch a *combined* 5000 messages per second maximum.
-
-|Auto topic creation
-|Disabled
 
 |Number of producers per topic
 |50
@@ -64,6 +61,8 @@ Max throughput for a *non-partitioned topic* or a *single partition of a partiti
 |Subscription Expiry
 |Not set
 |===
+
+[^1]: These limits cannot be modified.
 
 == Function and connector resource limits
 
@@ -139,6 +138,10 @@ These namespace policies are initially provisioned in the default settings by {p
 |Message deduplicate
 |Disabled
 |No
+
+|Topic auto creation
+|Disabled
+|Yes
 
 |Subscription auto creation
 |Enabled
